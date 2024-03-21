@@ -1,0 +1,243 @@
+\documentclass[final]{beamer}
+
+\usepackage{times}
+\usepackage{amsmath,amsthm, amssymb}
+\usepackage{wrapfig}
+\usepackage{tcolorbox}
+\usepackage[orientation=landscape,size=a0,scale=1.5]{beamerposter}
+\usepackage{tikz}
+\usetikzlibrary{shadows.blur} %！！！
+\usetikzlibrary{shadows}
+\usetheme{gemini}
+\usepackage{xcolor}
+\usepackage{relsize}
+
+
+\graphicspath{{./Images/}}
+
+\definecolor{customcolor}{HTML}{D0E0E3}
+\definecolor{titlebgcolor}{HTML}{2F565D}%{FE9090}%{E06666}
+\definecolor{myblockcolor}{HTML}{5093A2}
+\definecolor{blockcolor}{HTML}{FFE6CF}%{FFDADA}%{F9CB9C}
+
+\usecolortheme{whale}
+\setbeamercolor{background canvas}{bg=customcolor}
+%\setbeamercolor{titlelike}{parent=structure,bg=titlebgcolor}
+
+%\setbeamercolor{titlelike}{parent=structure,bg=cyan}
+
+% If you have N columns, choose \sepwidth and \colwidth such that
+% (N+1)*\sepwidth + N*\colwidth = \paperwidth
+\newlength{\sepwidth}
+\newlength{\colwidth}
+\setlength{\sepwidth}{0.025\paperwidth}
+\setlength{\colwidth}{0.3\paperwidth}
+
+\newcommand{\separatorcolumn}{\begin{column}{\sepwidth}\end{column}}
+\newcommand{\placetextbox}[4]{% \placetextbox{<offset top>}{<offset left/right>}{<align>}{<stuff>}
+  \setbox0=\hbox{#4}% Put <stuff> in a box
+  \AddToShipoutPictureFG*{% Add <stuff> to current page foreground
+    \if#3r
+    \put(\LenToUnit{\paperwidth-#1},\LenToUnit{\paperheight-#2}){\vtop{{\null}\makebox[0pt][r]{\begin{tabular}{r}#4\end{tabular}}}}%
+    \else
+    \put(\LenToUnit{#1},\LenToUnit{\paperheight-#2}){\vtop{{\null}\makebox[0pt][l]{\begin{tabular}{l}#4\end{tabular}}}}%
+    \fi
+  }%
+}%
+
+\newtcolorbox{myblock}[2][]{
+  title=\centering\Large\bfseries #2,
+  colback=blockcolor,
+  colbacktitle=myblockcolor,
+  coltitle=white,
+  fonttitle=\bfseries,
+  colframe=myblockcolor,
+  boxrule=0pt,
+  toprule=2pt,
+  toptitle=5mm,
+  bottomtitle=5mm,
+  titlerule=0mm,
+  arc=5mm,
+  outer arc=5mm,
+  leftrule=0pt,
+  rightrule=0pt,
+  bottomrule=0pt,
+  boxsep=0pt,
+  left=10mm,
+  right=10mm,
+  top=10mm,
+  bottom=10mm,
+  shadow={80mm}{-80mm}{90mm}{black!90!white,blur}，
+  drop shadow=black!90!white,
+  enhanced,
+}
+
+%   Logos ======================================================
+\logoleft{\includegraphics[height=7.5cm]{DUlogo.png}}
+% \vspace{8cm}
+\logoright{\includegraphics[width=20cm]{MISCADA.jpg}}
+
+%   Body =========================================================
+\begin{document}
+
+\begin{frame}{}
+\begin{tikzpicture}[remember picture,overlay]
+\node [below = 2cm] at (current page.north) [anchor=north,inner sep=0pt] 
+  {
+    \begin{minipage}{\textwidth}
+      \centering
+      \begin{tikzpicture}
+        \node[rounded corners=10pt, drop shadow, fill=titlebgcolor, text width=0.6\textwidth, minimum height=10cm, align=center, text=white]
+        (titlebox) { 
+          \bfseries\Huge De Bono's Thinking Hats \\[1cm] 
+          \normalsize - An Innovation Method - \\
+          \normalfont H. Fullwood, S. Hasan \\ 
+           
+        };
+      \end{tikzpicture}
+    \end{minipage}
+  };
+\end{tikzpicture}
+
+\begin{columns}[t]
+\separatorcolumn
+%   Column 1 ======================================================
+\begin{column}{\colwidth}
+    \vspace{-2cm}
+    \begin{myblock}{Overview}
+    De Bono’s Thinking hats, also known as the Six Thinking Hats, are a way for companies to incorporate different considerations into their thinking process. It is a simple and effective thinking process that can boost people's moral, productivity and focus towards the given task.
+    \end{myblock}
+
+    \begin{myblock}{The White Hat} 
+    \begin{figure}
+        \includegraphics[height=0.4\textwidth]{Images/white_tr.png}
+    \end{figure}
+    \textbf{Facts, Objective, Information gathering or Data}
+    \\ What information is available?
+    What are the facts we have and what do we lack?
+    What does it tell us?
+    How are we going to get the information?
+    \\ $\looparrowright$ For example, how information can help to tackle a particular issue.
+
+    \end{myblock}
+
+    \begin{myblock}{The Red Hat}
+    \begin{figure}
+        \includegraphics[height=0.4\textwidth]{Images/red_tr.png}
+    \end{figure}
+    \textbf{Emotion, Feelings, Hunches, Intuition}
+
+    \\ How do you feel about the situation?
+    % 'I just don't think that idea will work.'
+
+    \\ $\looparrowright$ For example considerations about: environment, ethics, working environment, effects on current world issues.
+    \end{myblock}
+  
+\end{column}
+%   Column 2 ======================================================
+\separatorcolumn
+\begin{column}{\colwidth}
+    \vspace{-2cm}
+    \begin{myblock}{The Yellow Hat} 
+    \begin{figure}
+        \includegraphics[height=0.4\textwidth]{Images/yellow_tr.png}
+    \end{figure}
+    \textbf{Benefits, Positiveness, Feasibility}
+    \\ What are the advantages of applying the solution?
+    Why do you think it is workable?
+    
+    \\ $\looparrowright$ For example, consideration about the benefits of a new idea or a decision and how feasible this would be.
+
+    \end{myblock}
+
+    \begin{myblock}{The Green Hat} 
+    \begin{figure}
+        \includegraphics[height=0.4\textwidth]{Images/green_tr.png}
+    \end{figure}
+    \textbf{Creativity, Opportunity, Alternatives}
+
+    \\ What could be another solution?
+    What other ideas do you have?
+    % What about approaching the issue from the opposite viewpoint?
+
+    \\ $\looparrowright$ For example, potential new partnerships with different companies, targeting different markets or better solutions to old problems.
+    \end{myblock}
+
+    \begin{myblock}{The Forgotten Hat} 
+    There is actually a seventh proposed hat known as the grey hat, it is meant to represent wisdom and some innovative schemes use this as a seventh hat - despite it not being widely accepted.
+    \end{myblock}
+    
+\end{column}
+%   Column 3 ======================================================
+\separatorcolumn
+\begin{column}{\colwidth}
+    \vspace{-2cm}
+
+    \begin{myblock}{The Black Hat} 
+    \begin{figure}
+        \includegraphics[height=0.4\textwidth]{Images/black_tr.png}
+    \end{figure}
+    \textbf{Risks, Negativity, Impact, Caution}
+    \\ What are the risks?
+    What are the worst-case scenarios?
+    Why could the solution not work?
+    \\ $\looparrowright$ For example, identify any weak points in an idea or particular decision, and work out how to avoid them.
+    \end{myblock}
+
+    
+    \begin{myblock}{The Blue Hat} 
+    \begin{figure}
+        \includegraphics[height=0.42\textwidth]{Images/tr2.png}
+    \end{figure}
+    \textbf{Manages the realisations of all of the other hats.}
+
+    Have you considered all aspects equally?
+    How would you summarize all of the information from the other hats?
+
+    \\ $\looparrowright$ For example, balancing the risk vs rewards of new ideas whilst maintaining morality and profits.
+    \end{myblock}
+
+    \begin{myblock}{Conclusion} 
+    The accumulation of these different strains of thinking can be incredibly beneficial to a company’s innovation. Benefits include: maximising productivity, making clear and objective decisions and also allows the consideration of the problem as a whole.
+    \end{myblock}
+    
+\end{column}
+
+\separatorcolumn
+\end{columns}
+\end{frame}
+\end{document}
+%    \vfill
+%    \begin{block}{\large Fontsizes}
+%      \centering
+%      {\tiny tiny}\par
+%      {\scriptsize scriptsize}\par
+%      {\footnotesize footnotesize}\par
+%      {\normalsize normalsize}\par
+%      ...
+%    \end{block}
+%    
+%    \vfill
+%    \begin{columns}[t]
+%      \begin{column}{.30\linewidth}
+%        \begin{block}{Introduction}
+%          \begin{itemize}
+%%          \item some items
+%          \item some items
+%%          ...
+ %         \end{itemize}
+ %       \end{block}
+ %     \end{column}
+ %     \begin{column}{.48\linewidth}
+ %       \begin{block}{Introduction}
+ %         \begin{itemize}
+ %         \item some items and $\alpha=\gamma, \sum_{i}$
+ %         ...
+ %         \end{itemize}
+ %         $$\alpha=\gamma, \sum_{i}$$
+ %       \end{block}
+  %      ...
+
+%      \end{column}
+%    \end{columns}
+%  \end{frame}
